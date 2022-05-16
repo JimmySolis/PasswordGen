@@ -12,6 +12,7 @@ var numbers = [1,2,3,4,5,6,7,8,9,0];
 var symbols = [ "!", "#", "$", "%","&", "'", "(", ")", "*", "+", ",", "-",".","/",":", ";", "<", "=",">","?","@","[","]","^","_","`","{","|","}","~"]
 //  This is a shorthand version of me writing each character out. I make an Array of an Array with a set of 26 undefined. 
 // Then I call each iteam in the Arrray with .map and select the index to begin at 97, which is the code for the letter a in javascript. 
+
 var characterCode = Array.from(Array(26)).map((_,i) => i + 97);
 // Then I have to set that charactercode to the lowercase variabe and once again i need to call that element in that array to convert the code inorder to string.
 var lowerCaseLetters = characterCode.map(code => String.fromCharCode(code))
@@ -27,6 +28,13 @@ function generatePassword(withNumbers, withSymbols, withUpper, withLower){
 
 //  I  used prompt in this variable becasue I need a number from the app user. 
   var length = prompt ("How long should the password be? 8-128" );
+
+while(isNaN(length)|| length< 8||length>128 ){
+
+  length = prompt ("Password length can only be Numbers and Only 8 -128 characters?" );
+
+}
+  
 
   //  confirm to simplify the preference in these prompts.
   withNumbers = confirm ( "With numbers?")
