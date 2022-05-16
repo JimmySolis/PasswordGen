@@ -1,6 +1,6 @@
  
  // 1. Create a serise of prompts so that it can be selected to make unique password.✅
-  // 2. Give it a option for length of 8 - 128 characters.
+  // 2. Give it a option for length of 8 - 128 characters.✅
   // 3. Make availible lowerCase, upperCase, numeric, and/or special characters.✅
   // 4. Have the option to select multiple types of characters or just a single type. ✅
   // 5. Have the password displyed in an alert or on the page. ✅
@@ -29,7 +29,7 @@ function generatePassword(withNumbers, withSymbols, withUpper, withLower){
 //  I  used prompt in this variable becasue I need a number from the app user. 
   var length = prompt ("How long should the password be? 8-128" );
 
-while(isNaN(length)|| length< 8||length>128 ){
+  while(isNaN(length)|| length< 8||length>128 ){
 
   length = prompt ("Password length can only be Numbers and Only 8 -128 characters?" );
 
@@ -52,14 +52,14 @@ while(isNaN(length)|| length< 8||length>128 ){
 
  ];
 //   this password is a empty play holder if nothing is selescted.
- var password = " ";
+//  var password = " ";
+
+//
+// // the input from zero shouldn't even run because of the promt above but I had this before hand. its called from here.
+// //  if(availibleCharacters.length === 0) return " ";
 
 
-// its called from here.
- if(availibleCharacters.length === 0) return " ";
-
-
-//  for loop to help me go through the index of avalibleCharacters. Math.floor to have a full interger, and math.random to select at random from all the variables.
+//  for loop to helps me go through the index of avalibleCharacters. Math.floor to have a full interger, and math.random to select at random from all the variables in the avaibileCharacters index.
 for(var i= 0; i < length; i++){
 var randomIndex = Math.floor(Math.random() * availibleCharacters.length);
 password += availibleCharacters[randomIndex];
