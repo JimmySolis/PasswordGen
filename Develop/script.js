@@ -51,18 +51,18 @@ function generatePassword(withNumbers, withSymbols, withUpper, withLower){
    ...(withLower ? lowerCaseLetters : []),
 
  ];
-//   this password is a empty play holder if nothing is selescted.
-//  var password = " ";
+ // This here helps replace the value of password so that everytime we use the function the password box is empty.
+ var password = " ";
 
-//
-// // the input from zero shouldn't even run because of the promt above but I had this before hand. its called from here.
-// //  if(availibleCharacters.length === 0) return " ";
+ // If user does not select any of the confirms then nothing will apper because of this.
+ if(availibleCharacters.length === 0) return " ";
 
 
-//  for loop to helps me go through the index of avalibleCharacters. Math.floor to have a full interger, and math.random to select at random from all the variables in the avaibileCharacters index.
-for(var i= 0; i < length; i++){
-var randomIndex = Math.floor(Math.random() * availibleCharacters.length);
-password += availibleCharacters[randomIndex];
+ //  for loop to helps me go through the index of avalibleCharacters.
+ for(var i= 0; i < length; i++){
+  // Here I have made a variable called randomIndex to have the value of a full interger generated at random by Math and its methods. 
+ var randomIndex = Math.floor(Math.random() * availibleCharacters.length);
+ password += availibleCharacters.at(randomIndex);
  }
 
 
@@ -87,4 +87,6 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
 
