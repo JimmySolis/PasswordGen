@@ -2,16 +2,20 @@
  // 1. Create a serise of prompts so that it can be selected to make unique password.✅
   // 2. Give it a option for length of 8 - 128 characters.
   // 3. Make availible lowerCase, upperCase, numeric, and/or special characters.✅
-  // 4. Have the option to select multiple types of characters or just a single type. 
-  // 5. Have the password displyed in an alert or on the page. 
+  // 4. Have the option to select multiple types of characters or just a single type. ✅
+  // 5. Have the password displyed in an alert or on the page. ✅
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 var numbers = [1,2,3,4,5,6,7,8,9,0];
 var symbols = [ "!", "#", "$", "%","&", "'", "(", ")", "*", "+", ",", "-",".","/",":", ";", "<", "=",">","?","@","[","]","^","_","`","{","|","}","~"]
+//  This is a shorthand version of me writing each character out. I make an Array of an Array with a set of 26 undefined. 
+// Then I call each iteam in the Arrray with .map and select the index to begin at 97, which is the code for the letter a in javascript. 
 var characterCode = Array.from(Array(26)).map((_,i) => i + 97);
+// Then I have to set that charactercode to the lowercase variabe and once again i need to call that element in that array to convert the code inorder to string.
 var lowerCaseLetters = characterCode.map(code => String.fromCharCode(code))
+// Then I have to do the same with the uppercase, but I can simply use .toUpperCase to change the code again.
 var upperCaseLetters = lowerCaseLetters.map(letter => letter.toUpperCase())
 
 
@@ -21,12 +25,17 @@ var upperCaseLetters = lowerCaseLetters.map(letter => letter.toUpperCase())
 // The parameter is filled with the arrguments I want to be able to use to create the password. 
 function generatePassword(withNumbers, withSymbols, withUpper, withLower){
 
-  var length = prompt ("How long should the password be? 8-128")
+//  I  used prompt in this variable becasue I need a number from the app user. 
+  var length = prompt ("How long should the password be? 8-128" );
+
+  //  confirm to simplify the preference in these prompts.
   withNumbers = confirm ( "With numbers?")
-  withSymbols = confirm (" With Symbols")
+  withSymbols = confirm (" With Symbols?")
   withLower = confirm ("With Lower Case Letters?")
   withUpper= confirm ( "With Upper Case Letters?")
 
+
+// this variable here reads out the the parameres are met, and if so allwo the variable from numbers to be selected, if not : then given them an empty Array , disallowing the use of these character.   
  var availibleCharacters = [
    ...(withNumbers ? numbers :[]),
    ...(withSymbols ? symbols :[]),
@@ -34,14 +43,15 @@ function generatePassword(withNumbers, withSymbols, withUpper, withLower){
    ...(withLower ? lowerCaseLetters : []),
 
  ];
-
-
+//   this password is a empty play holder if nothing is selescted.
  var password = " ";
 
 
-if(availibleCharacters.length === 0) return " ";
+// its called from here.
+ if(availibleCharacters.length === 0) return " ";
 
 
+//  for loop to help me go through the index of avalibleCharacters. Math.floor to have a full interger, and math.random to select at random from all the variables.
 for(var i= 0; i < length; i++){
 var randomIndex = Math.floor(Math.random() * availibleCharacters.length);
 password += availibleCharacters[randomIndex];
