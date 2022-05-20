@@ -1,9 +1,3 @@
-website:  https://jimmysolis.github.io/PasswordGen/
-
-code: https://github.com/JimmySolis/PasswordGen
-
-
-
 Challenge 02-Done!
 
 Needed alot of help and growth in this challenge but it finally works.
@@ -24,4 +18,11 @@ Made the promts nessecary to take the input and inform the passwordGenorator. Th
   // 3. Make availible lowerCase, upperCase, numeric, and/or special characters.✅
   // 4. Have the option to select multiple types of characters or just a single type. ✅
   // 5. Have the password displyed in an alert or on the page. ✅
+
+  var alphabet = [...("abcdefghijklmnopqrstuvwxyz")] This is another way to write out the alphabet out with out having to type it out. Spead operator pulls the values in the string and separates it. 
+
+
+
+
+
 
